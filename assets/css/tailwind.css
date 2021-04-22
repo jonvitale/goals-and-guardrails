@@ -1,0 +1,138 @@
+/* purgecss start ignore */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+/* purgecss end ignore */
+@import 'tailwindcss/utilities';
+
+.page {
+  @apply mb-24;
+}
+.report {
+  @apply mx-2;
+  max-width: 900px;
+}
+.report--print {
+  width: 8in;
+}
+
+/* 
+  The following uses a BEM approach
+  Blocks and elements:
+    b-banner: a banner that displays across all
+    b-infobox: a box that displays general information, e.g., a definition or a kpi
+    b-table: table of values
+      __title: a title that will go across the top of the of the table
+      __subtitle: a subtitle that will span across the table but can be inserted into center
+      __header: text that goes at the top of a column
+      __row-label: text that goes on the left hand side of the table
+      __side-title: a title that will go on the left hand side of the table
+      __value: a value inside a cell in the table
+    b-summarytable: a table with what/why/how
+  */
+
+.b-banner {
+  @apply w-full text-center bg-dark-blue text-white text-base py-2;
+}
+.b-section-title {
+  @apply w-full bg-white text-center text-black text-2xl font-bold py-4 bg-green-200 my-2;
+}
+.b-infobox {
+  @apply w-full bg-dark-blue text-white p-2;
+}
+.b-infobox__title {
+  @apply text-center text-lg underline;
+}
+.b-infobox__subtitle {
+  @apply text-center text-lg;
+}
+.b-table {
+}
+.b-table__sep {
+  @apply bg-white text-white;
+  height: 1rem;
+}
+
+.b-table__title {
+  @apply w-full text-center bg-dark-blue text-white text-lg;
+}
+.b-table__subtitle {
+  @apply w-full text-center bg-dark-blue text-white text-base;
+}
+.b-table__side-title {
+  @apply h-full p-2 origin-top-right text-right transform -rotate-90 -translate-x-full bg-dark-blue text-white;
+}
+.b-table__header-row {
+  @apply bg-dark-blue text-white border border-gray-400 items-start;
+}
+.b-table__header-row-value {
+  @apply text-base text-center p-1 text-xs self-start;
+}
+.b-table__row {
+  @apply text-black border border-gray-400;
+}
+.b-table__value {
+  @apply text-center px-1 py-2;
+}
+.b-table__value--bordered {
+  @apply border border-gray-400;
+}
+.b-table__value--current {
+  @apply bg-blue-200 font-semibold;
+}
+.b-table__footnotes {
+  @apply text-left text-xs;
+}
+.b-summarytable {
+  @apply text-black;
+  /* this will be ignored but is a hack to make the div content fit the td
+  see: https://stackoverflow.com/questions/3215553/make-a-div-fill-an-entire-table-cell */
+  height: 1px;
+  & td {
+    @apply h-full;
+  }
+}
+.b-summarytable__header-row {
+  @apply bg-dark-blue text-white text-xl border border-gray-400;
+}
+.b-summarytable__row-label {
+  @apply pb-4 font-semibold text-white flex justify-center items-center;
+  width: 2rem;
+}
+.b-summarytable__row-label--climate {
+  @apply bg-blue-400;
+  & div {
+    @apply pt-4 text-lg origin-top-right transform -rotate-90 -translate-x-full;
+  }
+}
+.b-summarytable__row-label--performance {
+  @apply bg-blue-800;
+  & div {
+    padding-top: 2.25rem;
+    margin-bottom: 1.75rem;
+    @apply text-lg origin-top-right transform -rotate-90 -translate-x-full;
+  }
+}
+.b-summarytable__row-label--staffing {
+  @apply bg-green-400;
+  & div {
+    @apply pt-4 text-lg origin-top-right transform -rotate-90 -translate-x-full;
+  }
+}
+.b-summarytable__value {
+  @apply p-1 h-full text-center border border-gray-600;
+  & p {
+    @apply py-1;
+  }
+  & ul {
+    @apply list-inside list-disc py-1;
+  }
+  & li {
+    @apply text-left pl-8 pb-2;
+  }
+}
+.b-summarytable__value--highlight {
+  @apply py-4 text-base font-bold;
+}
+.b-summarytable__value--sep {
+  @apply border-b border-gray-600;
+}
